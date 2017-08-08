@@ -8,20 +8,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Assalaam Motorsport</title>
+    <link href='icon.ico' rel='shortcut icon'>
 
     <!-- Styles -->
-    <link href="{{ asset ('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset ('css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{ asset ('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset ('css/jquery.dataTables.css') }}" rel="stylesheet">
-    <link href="{{ asset ('css/dataTables.bootstrap.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -34,37 +31,22 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Assalaam Motorsport
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        @if (Auth::check())
-                            <li><a href="{{ url('/home')}}">Dashboard</a></li>
-                            @role('admin')
-                            <li><a href="{{ route('karyawan.index')}}">Penulis</a></li>
-                            <li><a href="{{ route('barang.index')}}">Barang</a></li>
-                            <li><a href="{{ route('supplier.index')}}">Supplier</a></li>
-                            <li><a href="{{ route('customer.index')}}">Customer</a></li>
-                            <li><a href="{{ route('penjualan.index')}}">Penjualan</a></li>
-                            <li><a href="{{ route('pembelian.index')}}">Pembelian</a></li>
-                            <li><a href="{{ route('jasa.index')}}">Jasa</a></li>
-                            @endrole
-                        @endif
+                    <ul class="nav navbar-nav navbar-left">
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('login') }}">Login</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Daftar</a></li>
                         @else
-                        
-                        
-                        
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -75,6 +57,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                                     <i class="fa fa-btn fa-sign-out"></i>
                                             Logout
                                         </a>
 
@@ -89,15 +72,13 @@
                 </div>
             </div>
         </nav>
+        </div>
+
         @yield('content')
     </div>
 
     <!-- Scripts -->
-   <script src="/js/app.js"></script>
-    <script src="{{ asset('table/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('table/js/dataTables.bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/selectize.min.js') }}"></script>
-    <script src="/js/custom.js"></script>
-    @yield('scripts')
-    </body>
+    <script src="{{ asset('js/app.js') }}"></script>
+
+</body>
 </html>

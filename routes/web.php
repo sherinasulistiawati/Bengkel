@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']], function(){
-	Route::resource('karyawan','KaryawansController');
+Route::group(['prefix'=>'admin','middleware'=>['auth']], function(){
+	Route::resource('barang','BarangsController');
+	Route::resource('supplier','SupplierController');
+	Route::resource('jasa','JasaController');
+	Route::resource('customer','CustomerController');
 });

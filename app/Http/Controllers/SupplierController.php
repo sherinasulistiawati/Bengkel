@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Barang;
 
-class BarangsController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class BarangsController extends Controller
     public function index()
     {
         //
-        $barang = Barang::all();
-        return view('barang.index',compact('barang'));
+        $supplier = Supplier::all();
+        return view('supplier.index',compact('supplier'));
     }
 
     /**
